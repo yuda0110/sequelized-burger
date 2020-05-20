@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const routes = require('./controllers/burgers_controller');
+const db = require('./models');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -15,6 +16,8 @@ const exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-app.listen(PORT, () => {
-  console.log("App now listening at localhost:" + PORT);
+db.sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => {
+    console.log("App now listening at localhost:" + PORT);
+  });
 });
