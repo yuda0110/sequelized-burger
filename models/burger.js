@@ -33,7 +33,9 @@ module.exports = function(sequelize, DataTypes) {
   Burger.associate = function(models) {
     Burger.belongsTo(models.Customer, {
       foreignKey: {
-        allowNull: false
+        name: 'customerID',
+        allowNull: true,
+        defaultValue: null
       }
     })
   }

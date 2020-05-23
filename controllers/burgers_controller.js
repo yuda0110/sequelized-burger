@@ -4,7 +4,9 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-  db.Burger.findAll({}).then((data) => {
+  db.Burger.findAll({
+    include: db.Customer
+  }).then((data) => {
     console.log(data);
     res.render('index', { burgers: data.map(burger => burger.toJSON()) });
   });

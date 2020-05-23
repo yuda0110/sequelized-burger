@@ -17,8 +17,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Customer.associate = function(models) {
-    Customer.hasMany(models.Burger, {
-      onDelete: 'cascade'
+    Customer.hasOne(models.Burger, {
+      onDelete: 'SET NULL'
     });
   }
 

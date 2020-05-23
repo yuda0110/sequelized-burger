@@ -7,8 +7,13 @@
             {{#each burgers}}
                 {{#unless devoured}}
                     <li>
-                        {{id}}. {{burger_name}}
-                        <button id="{{id}}" class="devour-btn">Devour it!</button>
+                        <p>{{id}}. {{burger_name}}</p>
+                        <form class="create-form">
+                            <div class="form-group">
+                                <input type="text" id="customer-name" name="customerName">
+                                <button id="{{id}}" type="submit" class="devour-btn">Devour it!</button>
+                            </div>
+                        </form>
                     </li>
                 {{/unless}}
             {{/each}}
@@ -21,7 +26,7 @@
         <ul>
             {{#each burgers}}
                 {{#if devoured}}
-                    <li>{{id}}. {{burger_name}}</li>
+                    <li>{{id}}. {{burger_name}} (Eaten by {{customer_name}})</li>
                 {{/if}}
             {{/each}}
         </ul>
