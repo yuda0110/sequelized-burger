@@ -7,7 +7,8 @@ router.get('/', (req, res) => {
   db.Burger.findAll({
     include: db.Customer
   }).then((data) => {
-    console.log(data);
+    console.log('=====data==========');
+    console.log(data.map(burger => burger.toJSON()));
     res.render('index', { burgers: data.map(burger => burger.toJSON()) });
   });
 });
@@ -18,7 +19,17 @@ router.post('/', (req, res) => {
     burger_name: req.body.name,
     devoured: false
   }).then((result) => {
-    console.log(result);
+    res.json(result);
+  });
+});
+
+router.post('/customer', (req, res) => {
+  console.log('req.body.customerName: ' + req.body.customerName);
+  console.log('req.body.BurgerId: ' + req.body.BurgerId);
+  db.Customer.create({
+    name: req.body.customerName,
+    BurgerId: req.body.BurgerId
+  }).then(result => {
     res.json(result);
   });
 });

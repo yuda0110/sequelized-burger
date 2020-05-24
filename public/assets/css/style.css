@@ -105,6 +105,7 @@ h2 {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
+    align-content: flex-start;
 }
 
 section {

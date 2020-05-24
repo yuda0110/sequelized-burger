@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   const Customer = sequelize.define('Customer', {
     id: {
       type: DataTypes.UUID,
-      defaultValue: sequelize.UUIDV4,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true
     },
@@ -17,8 +17,11 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Customer.associate = function(models) {
-    Customer.hasOne(models.Burger, {
-      onDelete: 'SET NULL'
+    Customer.belongsTo(models.Burger, {
+      foreignKey: {
+        // name: 'burgerId',
+        allowNull: false
+      }
     });
   }
 
