@@ -7,10 +7,10 @@
             {{#each burgers}}
                 {{#unless devoured}}
                     <li>
-                        <p>{{id}}. {{burger_name}}</p>
+                        <p class="burger-name">{{id}}. {{burger_name}}</p>
                         <form class="create-form">
                             <div class="form-group">
-                                <input type="text" id="customer-name-{{id}}" name="customerName">
+                                <input type="text" id="customer-name-{{id}}" name="customerName" placeholder="Customer's Name">
                                 <button id="{{id}}" class="devour-btn">Devour it!</button>
                             </div>
                         </form>
@@ -26,7 +26,7 @@
         <ul>
             {{#each burgers}}
                 {{#if devoured}}
-                    <li>{{id}}. {{burger_name}} (Eaten by {{Customer.name}})</li>
+                    <li><span class="burger-name">{{id}}. {{burger_name}}</span> (Eaten by {{Customer.name}})</li>
                 {{/if}}
             {{/each}}
         </ul>
