@@ -29,5 +29,13 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+
+  Burger.associate = function(models) {
+    Burger.hasOne(models.Customer, {
+      onDelete: 'SET NULL',
+      // foreignKey: 'burgerId'
+    })
+  }
+
   return Burger;
 };
