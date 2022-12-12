@@ -15,7 +15,7 @@
   "author": "Yuko Uda",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-handlebars": "^4.0.4",
     "morgan": "^1.10.0",
     "mysql2": "^2.1.0",
